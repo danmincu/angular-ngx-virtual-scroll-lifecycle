@@ -1,0 +1,11 @@
+<h3> Analysis for the virtual panel and its items life-cycle </h3>
+<ng-container *ngIf="states$ |async as allStates">
+<virtual-scroller #scroll class="list-container lg" [items]="allStates">
+    <app-display-item class="list-group-item" *ngFor="let item of scroll.viewPortItems; trackBy: trackById" [state]="item" [id]="item.id"></app-display-item>
+</virtual-scroller>
+
+<div style="padding-top:20px;"> 
+  Total Size: {{allStates.length}}
+</div>
+
+</ng-container>
